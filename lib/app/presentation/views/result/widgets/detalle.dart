@@ -11,18 +11,7 @@ class DetalleCuota extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 40),
       padding: EdgeInsets.all(8),
-      child:
-          // GridView.builder(
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2,
-          //       crossAxisSpacing: 10,
-          //       mainAxisSpacing: 10,
-          //       childAspectRatio: 0.7),
-          //   itemBuilder: (context, index) {
-          //     return Text("data");
-          //   },
-          // ),
-          Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
