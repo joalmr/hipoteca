@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class TextFormInput extends StatelessWidget {
   final String? initialValue;
   final String? text;
   final String? hintText;
+  final String? labelText;
   final bool readOnly;
   final bool? enabled;
   final TextEditingController? controller;
@@ -22,6 +24,7 @@ class TextFormInput extends StatelessWidget {
     this.initialValue,
     this.text,
     this.hintText,
+    this.labelText,
     this.enabled,
     this.readOnly = false,
     this.controller,
@@ -47,10 +50,28 @@ class TextFormInput extends StatelessWidget {
           TextFormField(
             controller: controller,
             initialValue: initialValue,
+            style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               hintText: hintText,
-              fillColor: fillColor,
+              labelText: labelText,
               suffix: suffix,
+              //
+              contentPadding: EdgeInsets.all(12),
+              labelStyle: TextStyle(color: Colors.white),
+              suffixStyle: TextStyle(color: Colors.white),
+              floatingLabelStyle: TextStyle(color: primarioColor),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(color: Colors.white),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(color: Color(0xFF354a5f)),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide(color: Color(0xFF354a5f)),
+              ),
             ),
             textCapitalization: TextCapitalization.sentences,
             keyboardType: keyboardType,
@@ -60,7 +81,6 @@ class TextFormInput extends StatelessWidget {
             onChanged: onChanged,
             onEditingComplete: onEditingComplete,
             maxLength: maxLength,
-            // maxLengthEnforcement: MaxLengthEnforcement.enforced,
           ),
         ],
       ),

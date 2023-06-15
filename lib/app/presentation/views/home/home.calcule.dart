@@ -72,8 +72,9 @@ class _CalculeViewState extends State<CalculeView> {
                       SizedBox(height: 20),
                       TituloCalcule(),
                       SizedBox(height: 20),
+                      SizedBox(height: 20),
                       TextFormInput(
-                        hintText: "Valor de la vivienda",
+                        labelText: "Valor de la vivienda",
                         controller: valorCtr,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -85,7 +86,7 @@ class _CalculeViewState extends State<CalculeView> {
                       Padding(
                         padding: EdgeInsets.only(top: 18),
                         child: TextFormInput(
-                          hintText: "Cuota inicial",
+                          labelText: "Cuota inicial",
                           controller: inicialCtr,
                           keyboardType: TextInputType.number,
                           inputFormatters: [
@@ -98,7 +99,7 @@ class _CalculeViewState extends State<CalculeView> {
                         padding: EdgeInsets.only(top: 18),
                         child: GestureDetector(
                           child: TextFormInput(
-                            hintText: "Intereses",
+                            labelText: "Intereses",
                             controller: interesCtr,
                             keyboardType: TextInputType.number,
                             inputFormatters: [
@@ -238,41 +239,67 @@ class _CalculeViewState extends State<CalculeView> {
               child: ButtonPrimary(
                 text: "Calcular",
                 onPressed: () async {
-                  String val1 = valorCtr.text.replaceAll(',', '');
-                  String val2 = inicialCtr.text.replaceAll(',', '');
-                  valor = double.parse(val1);
-                  inicial = double.parse(val2);
-
-                  num interesNum = num.parse(interesCtr.text);
-
-                  if (inicial > valor) {
+                  if (valorCtr.text.isEmpty ||
+                      inicialCtr.text.isEmpty ||
+                      interesCtr.text.isEmpty) {
                     const snackBar = SnackBar(
-                      backgroundColor: Colors.red,
-                      content: Text(
-                          'La cuota inicial debe ser menor al valor de la vivienda'),
+                      backgroundColor: Color(0xFFbf3a2b),
+                      content: Text('Ingrese todos los campos'),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   } else {
-                    Calculos fn = Calculos();
-                    final results =
-                        await fn.exec(valor, inicial, periodo, interesNum);
+                    String val1 = valorCtr.text.replaceAll(',', '');
+                    String val2 = inicialCtr.text.replaceAll(',', '');
+                    valor = double.parse(val1);
+                    inicial = double.parse(val2);
 
-                    String cuotaDec2 = results[0].toStringAsFixed(2);
-                    fn.convertMil(results[0]);
+                    num interesNum = num.parse(interesCtr.text);
 
-                    Navigator.of(context).push(
-                      new MaterialPageRoute(
-                        builder: (_) => ResultView(
-                          cuota: cuotaDec2,
-                          periodo: periodo,
-                          inicial: inicialCtr.text,
-                          interes: interesCtr.text,
-                          interesTotal: results[2].toStringAsFixed(2),
-                          pagoTotal: results[1].toStringAsFixed(2),
-                          valor: valorCtr.text,
+                    if (inicial > valor) {
+                      const snackBar = SnackBar(
+                        backgroundColor: Color(0xFFbf3a2b),
+                        content: Text(
+                            'La cuota inicial debe ser menor al valor de la vivienda'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                    if (interesNum == 0) {
+                      const snackBar = SnackBar(
+                        backgroundColor: Color(0xFFbf3a2b),
+                        content: Text('Interés debe ser mayor a 0'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    } else {
+                      Calculos fn = Calculos();
+                      final results =
+                          await fn.exec(valor, inicial, periodo, interesNum);
+
+                      String cuotaDec2 = results[0].toStringAsFixed(2);
+                      fn.convertMil(results[0]);
+
+                      final tabla = await fn.tablaPagos(
+                        results[0],
+                        num.parse(interesCtr.text) / 100,
+                        (valor - inicial),
+                        periodo,
+                      );
+
+                      print(tabla);
+
+                      Navigator.of(context).push(
+                        new MaterialPageRoute(
+                          builder: (_) => ResultView(
+                            cuota: cuotaDec2,
+                            periodo: periodo,
+                            inicial: inicialCtr.text,
+                            interes: interesCtr.text,
+                            interesTotal: results[2].toStringAsFixed(2),
+                            pagoTotal: results[1].toStringAsFixed(2),
+                            valor: valorCtr.text,
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    }
                   }
                 },
               ),

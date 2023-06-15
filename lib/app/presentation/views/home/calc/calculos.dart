@@ -16,19 +16,22 @@ class Calculos {
 
     results = [resultCuota, resultPagoTotal, resultInteresTotal];
 
-    tablaPagos(resultCuota, interesNum / 100, (valor - inicial), periodo);
+    // tablaPagos(resultCuota, interesNum / 100, (valor - inicial), periodo);
 
     return results;
   }
 
-  void tablaPagos(num cuota, num interes, num saldo, num periodo) {
+////////////////////////////
+// tablaPagos(resultCuota, interesNum / 100, (valor - inicial), periodo);
+  List<List<String>> tablaPagos(
+      num cuota, num interes, num saldo, num periodo) {
+    List<List<String>> results = [];
+
     num newSaldo = saldo;
-    // num newCuota = cuota;
 
     List<String> tablaInteres = [];
     List<String> tablaAmortiza = [];
     List<String> tablaSaldo = [];
-    // List<String> tablaCuota = [];
 
     for (var i = 0; i < (periodo * 12); i++) {
       num primerInteres = newSaldo * (interes / 12);
@@ -40,7 +43,6 @@ class Calculos {
       tablaInteres.add(primerInteres.toStringAsFixed(2));
       tablaAmortiza.add(primerAmortiaza.toStringAsFixed(2));
       tablaSaldo.add(primerSaldo.toStringAsFixed(2));
-      // tablaCuota.add(primeraCuota.toStringAsFixed(2));
     }
 
     var iPri = 0;
@@ -71,11 +73,8 @@ class Calculos {
       }
     }
 
-    print("===>");
-    print(sumInteres);
-    print(sumAmortiza);
-    print(sumSaldo);
-    print(sumCuota);
+    results = [sumInteres, sumAmortiza, sumSaldo, sumCuota];
+    return results;
   }
 
   num cuota(num valor, num inicial, num periodo, num interes) {
