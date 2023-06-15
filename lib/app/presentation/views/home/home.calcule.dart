@@ -1,6 +1,7 @@
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hipoteca/app/presentation/views/home/widgets/card.calcule.dart';
 import 'package:hipoteca/app/presentation/views/home/widgets/titulo_calcule.dart';
 import 'package:hipoteca/app/presentation/views/result/result.dart';
@@ -20,6 +21,13 @@ class _CalculeViewState extends State<CalculeView> {
   TextEditingController valorCtr = TextEditingController();
   TextEditingController inicialCtr = TextEditingController();
   TextEditingController interesCtr = TextEditingController();
+
+  // final BannerAd banner = BannerAd(
+  //   size: AdSize.banner,
+  //   adUnitId: "",
+  //   listener: BannerAdListener(),
+  //   request: AdRequest(),
+  // );
 
   final money = TextInputMask(
     mask: '9+,999,999.99',
@@ -61,10 +69,9 @@ class _CalculeViewState extends State<CalculeView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      SizedBox(height: 20),
                       TituloCalcule(),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       TextFormInput(
                         hintText: "Valor de la vivienda",
                         controller: valorCtr,
@@ -270,6 +277,7 @@ class _CalculeViewState extends State<CalculeView> {
                 },
               ),
             ),
+            // AdWidget(ad: banner),
           ],
         ),
       ),
