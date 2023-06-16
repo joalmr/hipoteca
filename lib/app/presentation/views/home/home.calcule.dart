@@ -266,9 +266,6 @@ class _CalculeViewState extends State<CalculeView> {
                     final results =
                         await fn.exec(valor, inicial, periodo, interesNum);
 
-                    String cuotaDec2 = results[0].toStringAsFixed(2);
-                    fn.convertMil(results[0]);
-
                     final tabla = await fn.tablaPagos(
                       results[0],
                       num.parse(interesCtr.text) / 100,
@@ -281,13 +278,17 @@ class _CalculeViewState extends State<CalculeView> {
                     Navigator.of(context).push(
                       new MaterialPageRoute(
                         builder: (_) => ResultView(
-                          cuota: cuotaDec2,
+                          cuota: results[0],
                           periodo: periodo,
-                          inicial: inicialCtr.text,
-                          interes: interesCtr.text,
-                          interesTotal: results[2].toStringAsFixed(2),
-                          pagoTotal: results[1].toStringAsFixed(2),
-                          valor: valorCtr.text,
+                          inicial:
+                              num.parse(inicialCtr.text.replaceAll(",", "")),
+                          interes:
+                              num.parse(interesCtr.text.replaceAll(",", "")),
+                          interesTotal: results[2],
+                          pagoTotal: results[1],
+                          valor: num.parse(valorCtr.text.replaceAll(",", "")),
+                          tablaPagos: tabla,
+                          valorPrestamo: results[3],
                         ),
                       ),
                     );

@@ -23,6 +23,7 @@ class MainApp extends StatelessWidget {
         brightness: Brightness.light,
         scaffoldBackgroundColor: fondoColorPet,
         textTheme: GoogleFonts.ubuntuTextTheme(textTheme),
+        textSelectionTheme: TextSelectionThemeData(cursorColor: primarioColor),
       ),
       home: HomeView(),
     );

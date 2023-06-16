@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:hipoteca/app/presentation/views/ads.dart';
 import 'package:hipoteca/app/presentation/views/home/calc/calculos.dart';
-import 'package:hipoteca/app/presentation/views/result/widgets/detalle.dart';
+import 'package:hipoteca/app/presentation/views/result/result.graphic.dart';
+import 'package:hipoteca/app/presentation/views/result/result.resume.dart';
+import 'package:hipoteca/app/presentation/views/result/result.table.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
-class ResultView extends StatelessWidget {
-  final String cuota;
-  final String pagoTotal;
-  final String interesTotal;
+class ResultView extends StatefulWidget {
+  final num cuota;
+  final num pagoTotal;
+  final num interesTotal;
   final num periodo;
-  final String valor;
-  final String inicial;
-  final String interes;
+  final num valor;
+  final num inicial;
+  final num interes;
+  final num valorPrestamo;
+  final List<List<String>> tablaPagos;
   ResultView({
     super.key,
     required this.cuota,
@@ -21,80 +25,128 @@ class ResultView extends StatelessWidget {
     required this.valor,
     required this.inicial,
     required this.interes,
+    required this.tablaPagos,
+    required this.valorPrestamo,
   });
 
   @override
+  State<ResultView> createState() => _ResultViewState();
+}
+
+class _ResultViewState extends State<ResultView> {
+  num segmentoCuota = 0;
+  Calculos fn = Calculos();
+
+  @override
   Widget build(BuildContext context) {
-    Calculos fn = Calculos();
     return AdsView(
-      child: Container(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Tu cuota mensual es",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.only(top: 20, left: 32, right: 32),
+            height: 42,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
             ),
-            Text(
-              fn.convertMil(num.parse(cuota)),
-              style: TextStyle(
-                color: primarioColor,
-                fontSize: 48,
-                fontWeight: FontWeight.w700,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () => setState(() {
+                    segmentoCuota = 0;
+                  }),
+                  child: Container(
+                    height: double.maxFinite,
+                    margin: EdgeInsets.symmetric(vertical: 4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: segmentoCuota == 0 ? primarioColor : null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
+                    child: Center(
+                      child: Text(
+                        "Resumen",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => setState(() {
+                    segmentoCuota = 1;
+                  }),
+                  child: Container(
+                    height: double.maxFinite,
+                    margin: EdgeInsets.symmetric(vertical: 4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: segmentoCuota == 1 ? primarioColor : null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
+                    child: Center(
+                      child: Text(
+                        "Tabla",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => setState(() {
+                    segmentoCuota = 2;
+                  }),
+                  child: Container(
+                    height: double.maxFinite,
+                    margin: EdgeInsets.symmetric(vertical: 4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: segmentoCuota == 2 ? primarioColor : null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
+                    child: Center(
+                      child: Text(
+                        "Gráfico",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              "financiado en $periodo años",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 62),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  DetalleCuota(
-                    texto: "Interes total:",
-                    valor: fn.convertMil(num.parse(interesTotal)),
-                  ),
-                  DetalleCuota(
-                    texto: "Pago total:",
-                    valor: fn.convertMil(num.parse(pagoTotal)),
-                  ),
-                  DetalleCuota(
-                    texto: "Valor vivienda:",
-                    valor: valor,
-                  ),
-                  DetalleCuota(
-                    texto: "Cuota inicial:",
-                    valor: inicial,
-                  ),
-                  DetalleCuota(
-                    texto: "Interés:",
-                    valor: "$interes%",
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+          ),
+          Expanded(
+            child: segmentoCuota == 0
+                ? ResumenView(
+                    fn: fn,
+                    cuota: widget.cuota,
+                    periodo: widget.periodo,
+                    inicial: widget.inicial,
+                    interes: widget.interes,
+                    interesTotal: widget.interesTotal,
+                    pagoTotal: widget.pagoTotal,
+                    valor: widget.valor,
+                    valorPrestamo: widget.valorPrestamo,
+                  )
+                : segmentoCuota == 1
+                    ? TableView(
+                        tablaPagos: widget.tablaPagos,
+                        periodo: widget.periodo,
+                        fn: fn,
+                      )
+                    : GraphicView(
+                        interesTotal: widget.interesTotal,
+                        valorPrestamo: widget.valorPrestamo,
+                        pagoTotal: widget.pagoTotal,
+                        fn: fn,
+                      ),
+          ),
+        ],
       ),
     );
-    // SafeArea(
-    //   child: Scaffold(
-    //     body:
-    //   ),
-    // );
   }
 }

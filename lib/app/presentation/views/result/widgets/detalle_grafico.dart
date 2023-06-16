@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hipoteca/src/styles/colors/colors.dart';
 
-class DetalleCuota extends StatelessWidget {
+class GraficoDetalle extends StatelessWidget {
   final String texto;
   final String valor;
-  const DetalleCuota({
+  final Color? color;
+  const GraficoDetalle({
     super.key,
     required this.texto,
     required this.valor,
+    this.color,
   });
 
   @override
@@ -24,13 +25,13 @@ class DetalleCuota extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.monetization_on_outlined,
-                    color: Colors.white,
+                    color: color,
                   ),
                   SizedBox(width: 5),
                   Text(
                     texto,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: color,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -44,7 +45,7 @@ class DetalleCuota extends StatelessWidget {
               Text(
                 valor,
                 style: TextStyle(
-                  color: primarioColor,
+                  color: color,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

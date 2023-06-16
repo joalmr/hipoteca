@@ -51,6 +51,7 @@ class TextFormInput extends StatelessWidget {
             controller: controller,
             initialValue: initialValue,
             style: TextStyle(color: Colors.white),
+            // cursorColor: primarioColor,
             decoration: InputDecoration(
               hintText: hintText,
               labelText: labelText,

@@ -13,8 +13,9 @@ class Calculos {
     num resultPagoTotal = await pagoTotal(resultCuota, periodo);
     num resultInteresTotal =
         await interesTotal(resultPagoTotal, valor, inicial);
+    num valorPrestamo = valor - inicial;
 
-    results = [resultCuota, resultPagoTotal, resultInteresTotal];
+    results = [resultCuota, resultPagoTotal, resultInteresTotal, valorPrestamo];
 
     // tablaPagos(resultCuota, interesNum / 100, (valor - inicial), periodo);
 
@@ -73,7 +74,12 @@ class Calculos {
       }
     }
 
-    results = [sumInteres, sumAmortiza, sumSaldo, sumCuota];
+    results = [
+      sumCuota,
+      sumInteres,
+      sumAmortiza,
+      sumSaldo,
+    ];
     return results;
   }
 
