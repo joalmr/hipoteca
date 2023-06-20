@@ -91,7 +91,7 @@ class _CalculeViewState extends State<CalculeView> {
                       padding: EdgeInsets.only(top: 18),
                       child: GestureDetector(
                         child: TextFormInput(
-                          labelText: "Intereses",
+                          labelText: "Tasa de interés",
                           controller: interesCtr,
                           keyboardType: TextInputType.number,
                           inputFormatters: [

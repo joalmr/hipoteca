@@ -23,7 +23,7 @@ class TableView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 42),
               child: Text(
-                "Tabla de amortización",
+                "Tabla de amortización anual",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -91,9 +91,15 @@ class TableView extends StatelessWidget {
                     Expanded(
                       child: Container(
                         margin: EdgeInsets.only(right: 2),
-                        child: Text(
-                          fn.convertMil(num.parse(tablaPagos[0][i])),
-                          textAlign: TextAlign.right,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("${(i + 1)}) "),
+                            Text(
+                              fn.convertMil(num.parse(tablaPagos[0][i])),
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
                         ),
                       ),
                     ),

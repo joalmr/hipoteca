@@ -70,7 +70,7 @@ class ResumenView extends StatelessWidget {
                   valor: fn.convertMil(interesTotal),
                 ),
                 DetalleCuota(
-                  texto: "Pago total:",
+                  texto: "Pago total vivienda:",
                   valor: fn.convertMil(pagoTotal),
                 ),
                 DetalleCuota(
@@ -86,7 +86,7 @@ class ResumenView extends StatelessWidget {
                   valor: fn.convertMil(valorPrestamo),
                 ),
                 DetalleCuota(
-                  texto: "Interés:",
+                  texto: "Tasa interés:",
                   valor: "$interes%",
                 ),
               ],

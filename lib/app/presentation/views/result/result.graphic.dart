@@ -31,12 +31,12 @@ class GraphicView extends StatelessWidget {
             ),
           ),
           GraficoDetalle(
-            texto: "Interés:",
+            texto: "Interés total:",
             valor: fn.convertMil(interesTotal),
             color: primarioColor,
           ),
           GraficoDetalle(
-            texto: "Préstamo:",
+            texto: "Valor préstamo:",
             valor: fn.convertMil(valorPrestamo),
             color: Colors.white,
           ),
