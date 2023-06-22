@@ -94,7 +94,13 @@ class TableView extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("${(i + 1)}) "),
+                            Text(
+                              "${(i + 1)})",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 10,
+                              ),
+                            ),
                             Text(
                               fn.convertMil(num.parse(tablaPagos[0][i])),
                               textAlign: TextAlign.right,
