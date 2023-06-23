@@ -100,13 +100,6 @@ class CalculeLogic extends ChangeNotifier {
       }
     }
 
-    // results = [
-    //   sumCuota,
-    //   sumInteres,
-    //   sumAmortiza,
-    //   sumSaldo,
-    // ];
-
     notifyListeners();
   }
 
