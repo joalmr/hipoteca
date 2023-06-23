@@ -2,6 +2,7 @@ import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoteca/app/presentation/views/home/home.calcule.dart';
 import 'package:hipoteca/app/presentation/widgets/button/primary.button.dart';
+import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -51,7 +52,7 @@ class HomeView extends StatelessWidget {
                           EasyRichTextPattern(
                             targetString: 'nuevo hogar',
                             style: TextStyle(
-                              color: Color(0xFF33E1EC),
+                              color: primarioColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 48,
                             ),

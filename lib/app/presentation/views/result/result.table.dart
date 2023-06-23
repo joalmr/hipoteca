@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hipoteca/app/presentation/views/home/calc/calculos.dart';
+import 'package:hipoteca/main.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class TableView extends StatelessWidget {
-  final List<List<String>> tablaPagos;
-  final num periodo;
-  final Calculos fn;
-  const TableView({
-    super.key,
-    required this.tablaPagos,
-    required this.periodo,
-    required this.fn,
-  });
+  const TableView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print(tablaPagos);
+    final calculeLogic = MyInheretedWidget.of(context)!.calculeLogic;
     return Container(
       child: SingleChildScrollView(
         child: Column(
@@ -80,7 +72,7 @@ class TableView extends StatelessWidget {
                 ],
               ),
             ),
-            for (int i = 0; i < periodo; i++)
+            for (int i = 0; i < calculeLogic.periodo; i++)
               Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 18, vertical: 0.25),
@@ -102,7 +94,7 @@ class TableView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              fn.convertMil(num.parse(tablaPagos[0][i])),
+                              calculeLogic.sumCuota[i],
                               textAlign: TextAlign.right,
                             ),
                           ],
@@ -113,7 +105,7 @@ class TableView extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.only(right: 2),
                         child: Text(
-                          fn.convertMil(num.parse(tablaPagos[1][i])),
+                          calculeLogic.sumInteres[i],
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -122,7 +114,7 @@ class TableView extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.only(right: 2),
                         child: Text(
-                          fn.convertMil(num.parse(tablaPagos[2][i])),
+                          calculeLogic.sumAmortiza[i],
                           textAlign: TextAlign.right,
                         ),
                       ),
@@ -131,7 +123,7 @@ class TableView extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.only(right: 2),
                         child: Text(
-                          fn.convertMil(num.parse(tablaPagos[3][i])),
+                          calculeLogic.sumSaldo[i],
                           textAlign: TextAlign.right,
                         ),
                       ),

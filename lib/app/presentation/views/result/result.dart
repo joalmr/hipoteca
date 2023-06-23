@@ -1,33 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hipoteca/app/presentation/views/ads.dart';
-import 'package:hipoteca/app/presentation/views/home/calc/calculos.dart';
 import 'package:hipoteca/app/presentation/views/result/result.graphic.dart';
 import 'package:hipoteca/app/presentation/views/result/result.resume.dart';
 import 'package:hipoteca/app/presentation/views/result/result.table.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class ResultView extends StatefulWidget {
-  final num cuota;
-  final num pagoTotal;
-  final num interesTotal;
-  final num periodo;
-  final num valor;
-  final num inicial;
-  final num interes;
-  final num valorPrestamo;
-  final List<List<String>> tablaPagos;
-  ResultView({
-    super.key,
-    required this.cuota,
-    required this.periodo,
-    required this.pagoTotal,
-    required this.interesTotal,
-    required this.valor,
-    required this.inicial,
-    required this.interes,
-    required this.tablaPagos,
-    required this.valorPrestamo,
-  });
+  ResultView({super.key});
 
   @override
   State<ResultView> createState() => _ResultViewState();
@@ -35,7 +14,6 @@ class ResultView extends StatefulWidget {
 
 class _ResultViewState extends State<ResultView> {
   num segmentoCuota = 0;
-  Calculos fn = Calculos();
 
   @override
   Widget build(BuildContext context) {
@@ -121,29 +99,10 @@ class _ResultViewState extends State<ResultView> {
           ),
           Expanded(
             child: segmentoCuota == 0
-                ? ResumenView(
-                    fn: fn,
-                    cuota: widget.cuota,
-                    periodo: widget.periodo,
-                    inicial: widget.inicial,
-                    interes: widget.interes,
-                    interesTotal: widget.interesTotal,
-                    pagoTotal: widget.pagoTotal,
-                    valor: widget.valor,
-                    valorPrestamo: widget.valorPrestamo,
-                  )
+                ? ResumenView()
                 : segmentoCuota == 1
-                    ? TableView(
-                        tablaPagos: widget.tablaPagos,
-                        periodo: widget.periodo,
-                        fn: fn,
-                      )
-                    : GraphicView(
-                        interesTotal: widget.interesTotal,
-                        valorPrestamo: widget.valorPrestamo,
-                        pagoTotal: widget.pagoTotal,
-                        fn: fn,
-                      ),
+                    ? TableView()
+                    : GraphicView(),
           ),
         ],
       ),

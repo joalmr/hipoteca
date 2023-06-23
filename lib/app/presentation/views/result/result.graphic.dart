@@ -1,43 +1,34 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:hipoteca/app/presentation/views/home/calc/calculos.dart';
 import 'package:hipoteca/app/presentation/views/result/widgets/detalle_grafico.dart';
+import 'package:hipoteca/main.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class GraphicView extends StatelessWidget {
-  final num interesTotal;
-  final num valorPrestamo;
-  final num pagoTotal;
-  final Calculos fn;
-  const GraphicView({
-    super.key,
-    required this.interesTotal,
-    required this.valorPrestamo,
-    required this.pagoTotal,
-    required this.fn,
-  });
+  const GraphicView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final calculeLogic = MyInheretedWidget.of(context)!.calculeLogic;
     return Container(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 32, bottom: 20),
             child: PieChartSample3(
-              interesTotal: interesTotal,
-              valorPrestamo: valorPrestamo,
-              pagoTotal: pagoTotal,
+              interesTotal: calculeLogic.resInteresTotal,
+              valorPrestamo: calculeLogic.resValorPrestamo,
+              pagoTotal: calculeLogic.resPagoTotal,
             ),
           ),
           GraficoDetalle(
             texto: "Interés total:",
-            valor: fn.convertMil(interesTotal),
+            valor: calculeLogic.strInteresTotal,
             color: primarioColor,
           ),
           GraficoDetalle(
             texto: "Valor préstamo:",
-            valor: fn.convertMil(valorPrestamo),
+            valor: calculeLogic.strValorPrestamo,
             color: Colors.white,
           ),
         ],

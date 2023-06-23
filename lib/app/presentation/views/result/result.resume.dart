@@ -1,33 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hipoteca/app/presentation/views/home/calc/calculos.dart';
 import 'package:hipoteca/app/presentation/views/result/widgets/detalle.dart';
+import 'package:hipoteca/main.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class ResumenView extends StatelessWidget {
-  final Calculos fn;
-  final num cuota;
-  final num pagoTotal;
-  final num interesTotal;
-  final num periodo;
-  final num valor;
-  final num inicial;
-  final num interes;
-  final num valorPrestamo;
-  const ResumenView({
-    super.key,
-    required this.fn,
-    required this.cuota,
-    required this.pagoTotal,
-    required this.interesTotal,
-    required this.periodo,
-    required this.valor,
-    required this.inicial,
-    required this.interes,
-    required this.valorPrestamo,
-  });
+  const ResumenView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final calculeLogic = MyInheretedWidget.of(context)!.calculeLogic;
     return Container(
       width: double.maxFinite,
       // height: double.maxFinite,
@@ -44,7 +25,7 @@ class ResumenView extends StatelessWidget {
             ),
           ),
           Text(
-            fn.convertMil(cuota),
+            calculeLogic.strCuota,
             style: TextStyle(
               color: primarioColor,
               fontSize: 48,
@@ -52,7 +33,7 @@ class ResumenView extends StatelessWidget {
             ),
           ),
           Text(
-            "financiado en $periodo años",
+            "financiado en ${calculeLogic.periodo} años",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -67,27 +48,27 @@ class ResumenView extends StatelessWidget {
               children: [
                 DetalleCuota(
                   texto: "Interés total:",
-                  valor: fn.convertMil(interesTotal),
+                  valor: calculeLogic.strInteresTotal,
                 ),
                 DetalleCuota(
                   texto: "Pago total vivienda:",
-                  valor: fn.convertMil(pagoTotal),
+                  valor: calculeLogic.strPagoTotal,
                 ),
                 DetalleCuota(
                   texto: "Valor vivienda:",
-                  valor: fn.convertMil(valor),
+                  valor: calculeLogic.strValorVivienda,
                 ),
                 DetalleCuota(
                   texto: "Cuota inicial:",
-                  valor: fn.convertMil(inicial),
+                  valor: calculeLogic.strInicial,
                 ),
                 DetalleCuota(
                   texto: "Valor préstamo:",
-                  valor: fn.convertMil(valorPrestamo),
+                  valor: calculeLogic.strValorPrestamo,
                 ),
                 DetalleCuota(
                   texto: "Tasa interés:",
-                  valor: "$interes%",
+                  valor: "${calculeLogic.interes}%",
                 ),
               ],
             ),
