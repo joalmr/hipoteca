@@ -1,8 +1,10 @@
-# hipoteca
+# Hipoteca
 
 <picture>
   <img alt="Funciones" src="/assets/photos/funciones.png">
 </picture>
+
+## Pantallas
 <picture>
   <img alt="Funciones" src="/assets/photos/hipoteca1.png" height="350px">
 </picture>
