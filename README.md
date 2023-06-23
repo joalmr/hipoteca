@@ -4,7 +4,7 @@
   <img alt="Funciones" src="/assets/photos/funciones.png">
 </picture>
 <picture>
-  <img alt="Funciones" src="/assets/photos/hipoteca1.png">
+  <img alt="Funciones" src="/assets/photos/hipoteca1.png" height="100px">
 </picture>
 <picture>
   <img alt="Funciones" src="/assets/photos/hipoteca2.png">
