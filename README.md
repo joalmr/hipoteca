@@ -3,7 +3,6 @@
 (assets/photos/funciones.png)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/joalmr/hipoteca/master/assets/photos/funciones.png?token=GHSAT0AAAAAACDPDLY6YM6FCD5INMSHA7FOZEVHP4Q">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://raw.githubusercontent.com/joalmr/hipoteca/master/assets/photos/funciones.png?token=GHSAT0AAAAAACDPDLY6YM6FCD5INMSHA7FOZEVHP4Q">
+  <source srcset="https://raw.githubusercontent.com/joalmr/hipoteca/master/assets/photos/funciones.png?token=GHSAT0AAAAAACDPDLY6YM6FCD5INMSHA7FOZEVHP4Q">
+  <img src="/assets/photos/funciones.png">
 </picture>
