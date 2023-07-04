@@ -41,49 +41,39 @@ class TextFormInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: EdgeInsets.only(bottom: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          text == null ? SizedBox() : Text(text!),
-          text == null ? SizedBox() : SizedBox(height: 4),
-          TextFormField(
-            controller: controller,
-            initialValue: initialValue,
-            style: TextStyle(color: Colors.white),
-            // cursorColor: primarioColor,
-            decoration: InputDecoration(
-              hintText: hintText,
-              labelText: labelText,
-              suffix: suffix,
-              //
-              contentPadding: EdgeInsets.all(12),
-              labelStyle: TextStyle(color: Colors.white),
-              suffixStyle: TextStyle(color: Colors.white),
-              floatingLabelStyle: TextStyle(color: primarioColor),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: Color(0xFF354a5f)),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: Color(0xFF354a5f)),
-              ),
-            ),
-            textCapitalization: TextCapitalization.sentences,
-            keyboardType: keyboardType,
-            inputFormatters: inputFormatters,
-            readOnly: readOnly,
-            enabled: enabled,
-            onChanged: onChanged,
-            onEditingComplete: onEditingComplete,
-            maxLength: maxLength,
+      child: TextFormField(
+        controller: controller,
+        initialValue: initialValue,
+        style: TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          hintText: hintText,
+          labelText: labelText,
+          suffix: suffix,
+          contentPadding: EdgeInsets.all(12),
+          labelStyle: TextStyle(color: Colors.white),
+          suffixStyle: TextStyle(color: Colors.white),
+          floatingLabelStyle: TextStyle(color: primarioColor),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: Colors.white),
           ),
-        ],
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: Color(0xFF354a5f)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: Color(0xFF354a5f)),
+          ),
+        ),
+        textCapitalization: TextCapitalization.sentences,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        readOnly: readOnly,
+        enabled: enabled,
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
+        maxLength: maxLength,
       ),
     );
   }

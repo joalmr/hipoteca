@@ -64,7 +64,17 @@ class _CalculeViewState extends State<CalculeView> {
                         money,
                         LengthLimitingTextInputFormatter(14),
                       ],
-                      // maxLength: 14,
+                      suffix: Tooltip(
+                        message:
+                            "Valor de la vivienda: Precio del inmueble a comprar",
+                        child: Container(
+                          child: Icon(
+                            Icons.info_outline,
+                            color: Colors.white,
+                            size: 24,
+                          ),
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 18),
@@ -76,6 +86,17 @@ class _CalculeViewState extends State<CalculeView> {
                           money,
                           LengthLimitingTextInputFormatter(14),
                         ],
+                        suffix: Tooltip(
+                          message:
+                              "Cuota Inicial: Pago por adelantado de una parte del valor de la vivienda",
+                          child: Container(
+                            child: Icon(
+                              Icons.info_outline,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -89,10 +110,17 @@ class _CalculeViewState extends State<CalculeView> {
                             interes,
                             LengthLimitingTextInputFormatter(5)
                           ],
-                          suffix: Container(
-                            child: Text(
-                              "%",
-                              style: TextStyle(fontWeight: FontWeight.w900),
+                          suffix: Tooltip(
+                            message:
+                                "Tasa de interés: Tasa del crédito hipotecario que ofrece la entidad financiera",
+                            child: Container(
+                              child: Text(
+                                "%",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                ),
+                              ),
                             ),
                           ),
                         ),
