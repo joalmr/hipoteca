@@ -7,7 +7,7 @@ class AdsView extends StatelessWidget {
 
   final BannerAd banner = BannerAd(
     size: AdSize.banner,
-    adUnitId: "ca-app-pub-3940256099942544/6300978111", //TODO: ID PRUEBA
+    adUnitId: "ca-app-pub-4377454783493553/9121715810",
     request: AdRequest(),
     listener: BannerAdListener(
       onAdLoaded: (ad) => print("Ad loaded"),
