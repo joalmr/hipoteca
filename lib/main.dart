@@ -38,7 +38,10 @@ class MainApp extends StatelessWidget {
 
 class MyInheretedWidget extends InheritedWidget {
   final CalculeLogic calculeLogic;
-  MyInheretedWidget({required super.child, required this.calculeLogic});
+  MyInheretedWidget({
+    required super.child,
+    required this.calculeLogic,
+  });
 
   static MyInheretedWidget? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType();
