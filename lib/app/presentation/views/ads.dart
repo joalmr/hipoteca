@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdsView extends StatelessWidget {
@@ -7,7 +8,7 @@ class AdsView extends StatelessWidget {
 
   final BannerAd banner = BannerAd(
     size: AdSize.banner,
-    adUnitId: "ca-app-pub-4377454783493553/9121715810",
+    adUnitId: dotenv.env['ADUNITID']!,
     request: AdRequest(),
     listener: BannerAdListener(
       onAdLoaded: (ad) => print("Ad loaded"),
