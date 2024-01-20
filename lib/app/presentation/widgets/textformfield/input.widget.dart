@@ -44,26 +44,26 @@ class TextFormInput extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         initialValue: initialValue,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: kTextColor),
         decoration: InputDecoration(
           hintText: hintText,
           labelText: labelText,
           suffix: suffix,
           contentPadding: EdgeInsets.all(12),
-          labelStyle: TextStyle(color: Colors.white),
-          suffixStyle: TextStyle(color: Colors.white),
-          floatingLabelStyle: TextStyle(color: primarioColor),
+          labelStyle: TextStyle(color: kTextColor),
+          suffixStyle: TextStyle(color: kTextColor),
+          floatingLabelStyle: TextStyle(color: kPrimaryColor),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: kTextColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: Color(0xFF354a5f)),
+            borderSide: BorderSide(color: kPrimaryColor.withOpacity(0.3)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: Color(0xFF354a5f)),
+            borderSide: BorderSide(color: kPrimaryColor.withOpacity(0.3)),
           ),
         ),
         textCapitalization: TextCapitalization.sentences,

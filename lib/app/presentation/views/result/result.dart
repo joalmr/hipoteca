@@ -27,7 +27,7 @@ class _ResultViewState extends State<ResultView> {
             margin: EdgeInsets.only(top: 20, left: 32, right: 32),
             height: 42,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: kTextColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
@@ -43,13 +43,16 @@ class _ResultViewState extends State<ResultView> {
                     margin: EdgeInsets.symmetric(vertical: 4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: segmentoCuota == 0 ? primarioColor : null,
+                      color: segmentoCuota == 0 ? kPrimaryColor : null,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Center(
                       child: Text(
                         "Resumen",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor,
+                        ),
                       ),
                     ),
                   ),
@@ -63,13 +66,16 @@ class _ResultViewState extends State<ResultView> {
                     margin: EdgeInsets.symmetric(vertical: 4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: segmentoCuota == 1 ? primarioColor : null,
+                      color: segmentoCuota == 1 ? kPrimaryColor : null,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Center(
                       child: Text(
                         "Tabla",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor,
+                        ),
                       ),
                     ),
                   ),
@@ -83,13 +89,16 @@ class _ResultViewState extends State<ResultView> {
                     margin: EdgeInsets.symmetric(vertical: 4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: segmentoCuota == 2 ? primarioColor : null,
+                      color: segmentoCuota == 2 ? kPrimaryColor : null,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Center(
                       child: Text(
                         "Gráfico",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor,
+                        ),
                       ),
                     ),
                   ),

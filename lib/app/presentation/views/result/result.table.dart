@@ -16,17 +16,14 @@ class TableView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 42),
               child: Text(
                 "Tabla de amortización anual",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
             Container(
               margin:
                   const EdgeInsets.symmetric(horizontal: 18, vertical: 0.25),
               padding: EdgeInsets.all(8),
-              color: primarioColor,
+              color: kPrimaryColor,
               child: Row(
                 children: [
                   Expanded(
@@ -34,9 +31,9 @@ class TableView extends StatelessWidget {
                       "Cuota",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor),
                     ),
                   ),
                   Expanded(
@@ -44,9 +41,9 @@ class TableView extends StatelessWidget {
                       "Interés",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor),
                     ),
                   ),
                   Expanded(
@@ -54,9 +51,9 @@ class TableView extends StatelessWidget {
                       "Amortización",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor),
                     ),
                   ),
                   Expanded(
@@ -64,9 +61,9 @@ class TableView extends StatelessWidget {
                       "Saldo",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: kBackgroundColor),
                     ),
                   ),
                 ],
@@ -77,7 +74,7 @@ class TableView extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 18, vertical: 0.25),
                 padding: EdgeInsets.all(8),
-                color: Colors.white,
+                color: kTextColor,
                 child: Row(
                   children: [
                     Expanded(
@@ -89,6 +86,7 @@ class TableView extends StatelessWidget {
                             Text(
                               "${(i + 1)})",
                               style: TextStyle(
+                                color: kBackgroundColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 10,
                               ),
@@ -96,6 +94,9 @@ class TableView extends StatelessWidget {
                             Text(
                               calculeLogic.sumCuota[i],
                               textAlign: TextAlign.right,
+                              style: TextStyle(
+                                color: kBackgroundColor,
+                              ),
                             ),
                           ],
                         ),
@@ -107,6 +108,9 @@ class TableView extends StatelessWidget {
                         child: Text(
                           calculeLogic.sumInteres[i],
                           textAlign: TextAlign.right,
+                          style: TextStyle(
+                            color: kBackgroundColor,
+                          ),
                         ),
                       ),
                     ),
@@ -116,6 +120,9 @@ class TableView extends StatelessWidget {
                         child: Text(
                           calculeLogic.sumAmortiza[i],
                           textAlign: TextAlign.right,
+                          style: TextStyle(
+                            color: kBackgroundColor,
+                          ),
                         ),
                       ),
                     ),
@@ -125,6 +132,9 @@ class TableView extends StatelessWidget {
                         child: Text(
                           calculeLogic.sumSaldo[i],
                           textAlign: TextAlign.right,
+                          style: TextStyle(
+                            color: kBackgroundColor,
+                          ),
                         ),
                       ),
                     ),

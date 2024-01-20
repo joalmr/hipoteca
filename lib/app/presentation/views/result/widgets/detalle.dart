@@ -24,13 +24,13 @@ class DetalleCuota extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.monetization_on_outlined,
-                    color: Colors.white,
+                    color: kTextColor,
                   ),
                   SizedBox(width: 5),
                   Text(
                     texto,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: kTextColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -44,7 +44,7 @@ class DetalleCuota extends StatelessWidget {
               Text(
                 valor,
                 style: TextStyle(
-                  color: primarioColor,
+                  color: kPrimaryColor,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),

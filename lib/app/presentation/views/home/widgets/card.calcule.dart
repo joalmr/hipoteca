@@ -14,13 +14,16 @@ class CardCalcule extends StatelessWidget {
         width: 42,
         margin: EdgeInsets.only(right: 12),
         decoration: BoxDecoration(
-          color: periodo ? primarioColor : Colors.white,
+          color: periodo ? kPrimaryColor : kTextColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
           child: Text(
             numero.toString(),
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: kBackgroundColor,
+            ),
           ),
         ),
       ),

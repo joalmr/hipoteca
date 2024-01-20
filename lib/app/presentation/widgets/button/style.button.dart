@@ -6,7 +6,7 @@ final BorderRadius _borderRadiusBtn = BorderRadius.circular(5);
 final ButtonStyle buttonStylePrimary = TextButton.styleFrom(
   foregroundColor: Colors.black,
   alignment: Alignment.center,
-  backgroundColor: primarioColor,
+  backgroundColor: kPrimaryColor,
 
   // foregroundColor: Colors.grey[350],
   disabledForegroundColor: Colors.grey[350],
