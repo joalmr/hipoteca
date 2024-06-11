@@ -1,4 +1,4 @@
-package com.aedev.hipoteca
+package com.joalmr.hipoteca
 
 import io.flutter.embedding.android.FlutterActivity
 

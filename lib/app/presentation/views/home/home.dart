@@ -28,7 +28,6 @@ class HomeView extends StatelessWidget {
                       Text(
                         "Calcula el",
                         style: TextStyle(
-                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 48,
                         ),
@@ -36,7 +35,6 @@ class HomeView extends StatelessWidget {
                       Text(
                         "costo real de",
                         style: TextStyle(
-                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 48,
                         ),
@@ -44,7 +42,6 @@ class HomeView extends StatelessWidget {
                       EasyRichText(
                         "tu nuevo hogar",
                         defaultStyle: TextStyle(
-                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 48,
                         ),
@@ -52,7 +49,7 @@ class HomeView extends StatelessWidget {
                           EasyRichTextPattern(
                             targetString: 'nuevo hogar',
                             style: TextStyle(
-                              color: primarioColor,
+                              color: kPrimaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 48,
                             ),

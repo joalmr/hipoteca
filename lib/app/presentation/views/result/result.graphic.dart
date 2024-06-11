@@ -24,12 +24,12 @@ class GraphicView extends StatelessWidget {
           GraficoDetalle(
             texto: "Interés total:",
             valor: calculeLogic.strInteresTotal,
-            color: primarioColor,
+            color: kPrimaryColor,
           ),
           GraficoDetalle(
             texto: "Valor préstamo:",
             valor: calculeLogic.strValorPrestamo,
-            color: Colors.white,
+            color: kTextColor,
           ),
         ],
       ),
@@ -125,27 +125,27 @@ class PieChartSample3State extends State {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: primarioColor,
+            color: kPrimaryColor,
             value: porcInteres,
             title: '${(porcInteres * 100).toStringAsFixed(0)}%',
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
-              // color: const Color(0xffffffff),
+              color: kBackgroundColor,
               shadows: shadows,
             ),
           );
         case 1:
           return PieChartSectionData(
-            color: Colors.white,
+            color: kTextColor,
             value: procPrestamo,
             title: '${(procPrestamo * 100).toStringAsFixed(0)}%',
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
-              // color: const Color(0xffffffff),
+              color: kBackgroundColor,
               shadows: shadows,
             ),
           );

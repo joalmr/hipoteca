@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:hipoteca/app/presentation/logic/calcule.dart';
+import 'package:hipoteca/app/domain/calcule.dart';
 import 'package:hipoteca/app/presentation/views/home/home.dart';
 import 'package:hipoteca/src/styles/colors/colors.dart';
 
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    // final textTheme = Theme.of(context).textTheme;
     final calculeLogic = CalculeLogic();
     return MyInheretedWidget(
       calculeLogic: calculeLogic,
@@ -27,10 +27,22 @@ class MainApp extends StatelessWidget {
         title: 'Hipoteca',
         theme: ThemeData(
           brightness: Brightness.light,
-          scaffoldBackgroundColor: fondoColorPet,
-          textTheme: GoogleFonts.ubuntuTextTheme(textTheme),
+          scaffoldBackgroundColor: kBackgroundColor,
+          // textTheme: GoogleFonts.ubuntuTextTheme(textTheme),
           textSelectionTheme:
-              TextSelectionThemeData(cursorColor: primarioColor),
+              TextSelectionThemeData(cursorColor: kPrimaryColor),
+          textTheme: TextTheme(
+            displayLarge: TextStyle(color: kTextColor),
+            displayMedium: TextStyle(color: kTextColor),
+            displaySmall: TextStyle(color: kTextColor),
+            headlineMedium: TextStyle(color: kTextColor),
+            headlineSmall: TextStyle(color: kTextColor, fontSize: 26.0),
+            titleLarge: TextStyle(color: kTextColor, fontSize: 20.0),
+            titleMedium: TextStyle(color: kTextColor, fontSize: 16.0),
+            titleSmall: TextStyle(color: kTextColor, fontSize: 14.0),
+            bodyLarge: TextStyle(color: kTextColor, fontSize: 16.0),
+            bodyMedium: TextStyle(color: kTextColor, fontSize: 14.0),
+          ),
         ),
         home: HomeView(),
       ),

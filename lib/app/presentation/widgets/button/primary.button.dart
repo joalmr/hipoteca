@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hipoteca/src/styles/colors/colors.dart';
 
 import 'style.button.dart';
 
@@ -20,7 +21,10 @@ class ButtonPrimary extends StatelessWidget {
       height: 46,
       margin: EdgeInsets.symmetric(vertical: 2),
       child: TextButton(
-        child: Text(text!),
+        child: Text(
+          text!,
+          style: TextStyle(color: kBackgroundColor),
+        ),
         onPressed: onPressed,
         style: buttonStylePrimary,
       ),

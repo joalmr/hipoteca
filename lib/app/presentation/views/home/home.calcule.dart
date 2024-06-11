@@ -8,6 +8,7 @@ import 'package:hipoteca/app/presentation/views/result/result.dart';
 import 'package:hipoteca/app/presentation/widgets/button/primary.button.dart';
 import 'package:hipoteca/app/presentation/widgets/textformfield/input.widget.dart';
 import 'package:hipoteca/main.dart';
+import 'package:hipoteca/src/styles/colors/colors.dart';
 
 class CalculeView extends StatefulWidget {
   const CalculeView({super.key});
@@ -70,7 +71,7 @@ class _CalculeViewState extends State<CalculeView> {
                         child: Container(
                           child: Icon(
                             Icons.info_outline,
-                            color: Colors.white,
+                            color: kTextColor,
                             size: 24,
                           ),
                         ),
@@ -92,7 +93,7 @@ class _CalculeViewState extends State<CalculeView> {
                           child: Container(
                             child: Icon(
                               Icons.info_outline,
-                              color: Colors.white,
+                              color: kTextColor,
                               size: 24,
                             ),
                           ),
@@ -134,10 +135,7 @@ class _CalculeViewState extends State<CalculeView> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 12),
-                            child: Text(
-                              "Periodos en años",
-                              style: TextStyle(color: Colors.white),
-                            ),
+                            child: Text("Periodos en años"),
                           ),
                           SizedBox(height: 8),
                           SingleChildScrollView(

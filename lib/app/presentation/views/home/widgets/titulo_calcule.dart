@@ -12,7 +12,6 @@ class TituloCalcule extends StatelessWidget {
         Text(
           "Calcula",
           style: TextStyle(
-            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 48,
           ),
@@ -20,7 +19,6 @@ class TituloCalcule extends StatelessWidget {
         Text(
           "tu hipoteca",
           style: TextStyle(
-            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 48,
           ),

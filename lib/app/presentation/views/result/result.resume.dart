@@ -11,7 +11,6 @@ class ResumenView extends StatelessWidget {
     final calculeLogic = MyInheretedWidget.of(context)!.calculeLogic;
     return Container(
       width: double.maxFinite,
-      // height: double.maxFinite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -19,7 +18,6 @@ class ResumenView extends StatelessWidget {
           Text(
             "Tu cuota mensual es",
             style: TextStyle(
-              color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
@@ -27,7 +25,7 @@ class ResumenView extends StatelessWidget {
           Text(
             calculeLogic.strCuota,
             style: TextStyle(
-              color: primarioColor,
+              color: kPrimaryColor,
               fontSize: 48,
               fontWeight: FontWeight.w700,
             ),
@@ -35,7 +33,6 @@ class ResumenView extends StatelessWidget {
           Text(
             "financiado en ${calculeLogic.periodo} años",
             style: TextStyle(
-              color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),

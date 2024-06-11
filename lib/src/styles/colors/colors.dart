@@ -1,4 +1,7 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
-final fondoColorPet = Color(0xFF1C2935); //.fromARGB(255, 28, 41, 53);
-final primarioColor = Color(0xFF33E1EC);
+final kBackgroundColor = Color(0xFF273043);
+final kPrimaryColor = Color(0xFF816E94);
+final kTextColor = Colors.white;
+
+// final primarioColor = Color(0xFF33E1EC);
